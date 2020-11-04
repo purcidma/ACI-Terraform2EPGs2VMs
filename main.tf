@@ -4,11 +4,11 @@ Code Created by Pablo Urcid
  
  provider "aci" {
       # cisco-aci user name
-      username = "admin"
+      username = "YOU-USER"
       # cisco-aci password
-      password = "cisco123"
+      password = "YOUR-PWD"
       # cisco-aci url
-      url      = "https://mx-lab-apic2.cisco.com"
+      url      = "YOUR-IP-URL"
       insecure = true
     }
 

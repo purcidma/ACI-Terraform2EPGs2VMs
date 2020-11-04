@@ -1,0 +1,9 @@
+
+*.md
+.terraform/plugins/registry.terraform.io/ciscodevnet/aci/0.5.0/darwin_amd64/LICENSE
+*.0
+*.2_x4
+*.json
+*.backup
+*.tfplan
+*.tfstate

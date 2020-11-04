@@ -1,39 +1,37 @@
 /*
 Code Created by Pablo Urcid
  */
- 
+
 provider "vsphere" {
-    user = "cpoc"
-    password = "Cisco123!"
-    vsphere_server = "10.88.166.72"
+    user = "YOUR-USER"
+    password = "YOUR-PWD"
+    vsphere_server = "YOUR-IP-URL"
     allow_unverified_ssl = true
 }
 
 data "vsphere_datacenter" "dc" {
-  name = "sec"
+  name = "YOUR-DC"
 }
 
 data "vsphere_datastore" "datastore" {
-  name          = "Storage_All"
+  name          = "YOUR-DS"
   datacenter_id = data.vsphere_datacenter.dc.id
 }
 
 data "vsphere_compute_cluster" "cluster" {
-  name          = "clus-sec"
+  name          = "YOUR-CLUSTER"
   datacenter_id = data.vsphere_datacenter.dc.id
 }
 
 data "vsphere_network" "network1" {
   name          = format ("%v|%v|%v", aci_tenant.terra-tenant.name, aci_application_profile.general-network.name, aci_application_epg.epg4.name)
   depends_on = [null_resource.delay]
-  #name = "terra-tenant|general-network|epg4"
   datacenter_id = data.vsphere_datacenter.dc.id
 }
 
 data "vsphere_network" "network2" {
   name          = format ("%v|%v|%v", aci_tenant.terra-tenant.name, aci_application_profile.general-network.name, aci_application_epg.epg5.name)
   depends_on = [null_resource.delay]
-  #name = "terra-tenant|general-network|epg5"
   datacenter_id = data.vsphere_datacenter.dc.id
 }
  
